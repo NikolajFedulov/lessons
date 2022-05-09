@@ -111,7 +111,6 @@ public class MorseCode {
         try {
             Stream<String> streamOfArray = Arrays.stream(str);
             return (int) streamOfArray.
-//                    map(s -> s == null ? "" : s).
                     map(String::toLowerCase).
                     map(s -> s.split("")).
                     map(Arrays::stream).
@@ -120,12 +119,8 @@ public class MorseCode {
                             map(s -> s.toLowerCase(Locale.ROOT)).               // exception if null (not for reduce())
                             reduce((acc, s) -> acc + s).orElseThrow()
                     ).
-//                    map(s -> (s.indexOf("null") < 0 ? s : "null")).                 // for reduce()
                     distinct().
-//                    peek(s -> System.out.println("element: " + s)).   // checkout s
-//                    mapToInt(s -> (s.equals("null") ? -1 : 1)).                     // for reduce()
-//                    reduce(0, (acc, s) -> (s > 0)&&(acc >= 0) ? acc + s : -1);      // for reduce()
-                    count();                                                    // not for reduce()
+                    count();
         } catch (NullPointerException e) {
             return -1;
         }
