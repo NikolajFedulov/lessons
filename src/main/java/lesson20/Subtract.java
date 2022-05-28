@@ -1,6 +1,6 @@
 package lesson20;
 
-public enum TwoRomanNumeral {
+public enum Subtract {
     IV (-1, "IV"),
     IX (-1, "IX"),
     IL (-1, "IL"),
@@ -26,7 +26,7 @@ public enum TwoRomanNumeral {
     public final int value;
     public final String symbol;
 
-    TwoRomanNumeral(int value, String symbol){
+    Subtract(int value, String symbol){
         this.value = value;
         this.symbol = symbol;
     }
